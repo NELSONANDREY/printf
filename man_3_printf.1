@@ -63,6 +63,43 @@ be printed to the output from start to finish up to (but not including)
 the null.
 .TP
 .BR %
+.SH DESCRIPTION
+FORMAT controls the output in C _printf.  sequences are:
+.TP
+\e\e
+backslash
+.TP
+\ec
+Character
+.TP
+\en
+new line
+.TP
+%%
+a single %
+.TP
+%s
+string
+.TP
+%i
+print integer
+.TP
+%d
+print integer, too
+.SH EXAMPLES
+.nf
+int len;
+
+    len = _printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len);
+    _printf("Negative:[%d]\n", -762534);
+	_printf("Character:[%c]\n", 'H');
+	_printf("String:[%s]\n", "I am a string !");
+	len = _printf("Percent:[%%]\n");
+	_printf("Len:[%d]\n", len);
+	_printf("Unknown:[%r]\n");
+.fi
+
 Prints a literal percentage ('%') character.
 
 .SH AUTHORS
