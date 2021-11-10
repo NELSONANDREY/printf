@@ -30,6 +30,6 @@ All of the following files are scripts:
   </table>
 
 
-![myimage-alt-tag](https://github.com/NELSONANDREY/proy-printf/blob/master/PRINT%20F%20-%201.drawio.png)
+![myimage-alt-tag](https://github.com/NELSONANDREY/printf/blob/master/PRINT%20F%20-%201.drawio.png)
 
 CREATED BY MIGDALIS LAPAGE AND NELSON GALLEGO FOR HOLBERTON
