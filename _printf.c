@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 	int (*fun_conver)(va_list, char *, int);
 
 	va_start(list_arg, format);
-
 	if (list_arg == NULL)
 		return (-1);
 	if (format == NULL)
@@ -28,11 +27,19 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			fun_conver = specifiers_handler(format[i + 1]);
-			if (fun_conver == NULL)
-				return (EXIT_FAILURE);
-			char_printed += fun_conver(list_arg, buffer, char_printed);
-			i++;
+			if (format[i + 1] == 's' || format[i + 1] == 'c' || format[i + 1] == '%')
+			{
+				fun_conver = specifiers_handler(format[i + 1]);
+				if (fun_conver == NULL)
+					return (-1);
+				char_printed += fun_conver(list_arg, buffer, char_printed);
+				i++;
+			}
+			else
+			{
+				buffer[char_printed] = format[i];
+				char_printed++;
+			}
 		}
 		else
 		{
@@ -40,9 +47,7 @@ int _printf(const char *format, ...)
 			char_printed++;
 		}
 	}
-
 	write(1, buffer, char_printed);
-
 	va_end(list_arg);
 	return (char_printed);
 }
