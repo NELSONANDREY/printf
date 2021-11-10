@@ -8,13 +8,12 @@
  *Return: The number of the characters printed
  *
  **/
-
 int _printf(const char *format, ...)
 {
 	va_list list_arg;
 	int i, char_printed = 0;
 	char buffer[2048] = "";
-	int (*fun_conver)(va_list, char *, int);
+	int (*fun_conver)(va_list list_arg, char *buffer, int char_printed);
 
 	va_start(list_arg, format);
 	if (list_arg == NULL)
@@ -27,7 +26,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == 's' || format[i + 1] == 'c' || format[i + 1] == '%')
+			if (is_specifier(format[i + 1]))
 			{
 				fun_conver = specifiers_handler(format[i + 1]);
 				if (fun_conver == NULL)

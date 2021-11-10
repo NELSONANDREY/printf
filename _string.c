@@ -42,3 +42,50 @@ char *_strcpy(char *dest, char *src, int pos)
 	}
 	return (dest);
 }
+
+/**
+ *rev_string - Reverse a string
+ *@s: Pointer to string
+ *Description: Function for reverse a string
+ *Return: void
+ *
+ **/
+void rev_string(char *s)
+{
+	int i;
+	int j;
+	char temp;
+
+	i = 0;
+	while (*(s + i) != '\0')
+	{
+		i++;
+	}
+
+	j = i - 1;
+	i = 0;
+	while (i < j)
+	{
+		temp = s[i];
+		s[i] = s[j];
+		s[j] = temp;
+
+		i++;
+		j--;
+	}
+}
+
+/**
+ *is_specifier - Check if a char is a specifier
+ *@c: Char to check
+ *
+ *Return: 1 To is specifier or 0 for other char
+ *
+ **/
+int is_specifier(char c)
+{
+	if (c == 's' || c == 'c' || c == '%' || c == 'd' || c == 'i')
+		return (1);
+
+	return (0);
+}
