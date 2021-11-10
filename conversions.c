@@ -66,7 +66,7 @@ int add_number_buff(va_list list_arg, char *buffer, int pos)
 	if (num == 0)
 	{
 		buffer[pos] = '0';
-		return (len++);
+		return (1);
 	}
 	if (num > 0)
 	{
