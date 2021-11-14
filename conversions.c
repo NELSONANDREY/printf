@@ -68,9 +68,11 @@ int add_number_buff(va_list list_arg, char *buffer, int pos)
 		buffer[pos] = '0';
 		return (1);
 	}
+	aux = malloc(sizeof(int) * 11);
+	if (!aux)
+		return (NULL);
 	if (num > 0)
 	{
-		aux = malloc(sizeof(int) * 11);
 		for (i = 0; (num > 0) && (i < 11); i++)
 		{
 			aux[i] = (num % 10) + '0';
@@ -83,7 +85,6 @@ int add_number_buff(va_list list_arg, char *buffer, int pos)
 	if (num < 0)
 	{
 		buffer[pos] = '-';
-		aux = malloc(sizeof(int) * 11);
 		num = num * -1;
 		for (i = 0; (num > 0) && (i < 11); i++)
 		{
@@ -94,7 +95,6 @@ int add_number_buff(va_list list_arg, char *buffer, int pos)
 		buffer = _strcpy(buffer, aux, pos + 1);
 		len = i + 1;
 	}
-
 	free(aux);
 	return (len);
 }
