@@ -70,7 +70,7 @@ int add_number_buff(va_list list_arg, char *buffer, int pos)
 	}
 	aux = malloc(sizeof(int) * 11);
 	if (!aux)
-		return (NULL);
+		return (0);
 	if (num > 0)
 	{
 		for (i = 0; (num > 0) && (i < 11); i++)
